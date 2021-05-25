@@ -1,0 +1,17 @@
+//HCH
+//25/05/2021
+//header main theme
+.header {
+	align-items: center;
+	background-color: $primary;
+	color: $cadet-grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 250px;
+	width: 100%;
+}
+
+.header__img {
+	max-height: 150px;
+}
