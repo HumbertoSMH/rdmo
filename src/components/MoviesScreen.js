@@ -1,19 +1,23 @@
 import React from 'react';
+import { useFetch } from '../hooks/useFetch';
 
 export const MoviesScreen = () => {
-	const movies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	const { loading, films, poster } = useFetch();
 	return (
 		<>
+			<div>{JSON.stringify(poster)}</div>
 			{
-				movies.map(i => (
-					<div className="col-3" key={i}>
-						<div className="card" >
-							Movies
+				!loading
+					? (films?.map((i, idx) => (
+						<div className="col-3" key={idx}>
+							<div className="card" >
+								{i.title}
+								<img src={i.poster} width="100" />
+							</div>
 						</div>
-					</div>
-				))
+					)))
+					: <h1>Cargando</h1>
 			}
-
 		</>
 	);
 };
